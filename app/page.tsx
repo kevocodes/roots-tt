@@ -8,7 +8,7 @@ export default function Home() {
       <section className="p-8 flex w-full flex-col justify-center items-center text-center space-y-4 max-w-2xl">
         
         <h1 className="text-4xl font-bold tracking-tighter md:text-5xl lg:text-7xl">
-          Roots <AuroraText>Tasks</AuroraText>
+          Roots <AuroraText>Home</AuroraText>
         </h1>
         <p className="text-muted-foreground">
           Task management system for technical assessment.
@@ -19,7 +19,7 @@ export default function Home() {
             <Link href="/tasks">View Tasks</Link>
           </Button>
           <Button variant="outline" className="flex-1">
-            <Link href="/lists">View Lists</Link>
+            <Link href="/list">View Lists</Link>
           </Button>
         </section>
 
