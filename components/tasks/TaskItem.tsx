@@ -1,40 +1,48 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent } from "@/components/ui/card"
-import { Trash2, Edit3, Check, X } from "lucide-react"
-import type { Task } from "@/models/tasks.model"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import { Trash2, Edit3, Check, X } from "lucide-react";
+import type { Task } from "@/models/tasks.model";
+import { useAppDispatch } from "@/store/hooks";
+import { toggleComplete, editTask, deleteTask } from "@/store/tasksSlice";
 
 interface TaskItemProps {
-  task: Task
-  index: number
-  onToggleComplete: (id: number) => void
-  onEditTask: (id: number, name: string) => void
-  onDeleteTask: (id: number) => void
+  task: Task;
+  index: number;
 }
 
-export function TaskItem({ task, index, onToggleComplete, onEditTask, onDeleteTask }: TaskItemProps) {
-  const [isEditing, setIsEditing] = useState(false)
-  const [editName, setEditName] = useState(task.name)
+export function TaskItem({ task, index }: TaskItemProps) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editName, setEditName] = useState(task.name);
+  const dispatch = useAppDispatch();
 
   const handleSaveEdit = () => {
     if (editName.trim()) {
-      onEditTask(task.id, editName.trim())
+      dispatch(editTask({ id: task.id, name: editName.trim() }));
     }
-    setIsEditing(false)
-  }
+    setIsEditing(false);
+  };
 
   const handleCancelEdit = () => {
-    setEditName(task.name)
-    setIsEditing(false)
-  }
+    setEditName(task.name);
+    setIsEditing(false);
+  };
 
   const handleStartEdit = () => {
-    setEditName(task.name)
-    setIsEditing(true)
-  }
+    setEditName(task.name);
+    setIsEditing(true);
+  };
+
+  const handleToggleComplete = () => {
+    dispatch(toggleComplete(task.id));
+  };
+
+  const handleDeleteTask = () => {
+    dispatch(deleteTask(task.id));
+  };
 
   return (
     <Card
@@ -47,7 +55,7 @@ export function TaskItem({ task, index, onToggleComplete, onEditTask, onDeleteTa
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 flex-1">
             <button
-              onClick={() => onToggleComplete(task.id)}
+              onClick={handleToggleComplete}
               className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all duration-200 ${
                 task.completed
                   ? "bg-primary border-primary text-primary-foreground"
@@ -84,7 +92,9 @@ export function TaskItem({ task, index, onToggleComplete, onEditTask, onDeleteTa
               </div>
             ) : (
               <span
-                className={`text-card-foreground flex-1 text-start ${task.completed ? "line-through text-muted-foreground" : ""}`}
+                className={`text-card-foreground flex-1 text-start ${
+                  task.completed ? "line-through text-muted-foreground" : ""
+                }`}
               >
                 {task.name}
               </span>
@@ -104,7 +114,7 @@ export function TaskItem({ task, index, onToggleComplete, onEditTask, onDeleteTa
               <Button
                 size="sm"
                 variant="ghost"
-                onClick={() => onDeleteTask(task.id)}
+                onClick={handleDeleteTask}
                 className="text-destructive hover:text-slate-100 p-2 cursor-pointer hover:bg-destructive!"
               >
                 <Trash2 className="w-4 h-4" />
@@ -114,5 +124,5 @@ export function TaskItem({ task, index, onToggleComplete, onEditTask, onDeleteTa
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
