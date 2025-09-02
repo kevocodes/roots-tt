@@ -9,13 +9,10 @@ interface UserListProps {
 function UserList({ users }: UserListProps) {
   const resolvedUsers = use(users);
 
-  return (
-    <ul>
-      {resolvedUsers.slice(0,3).map((user) => (
+  return resolvedUsers.map((user) => (
         <UserCard key={user.id} user={user} />
-      ))}
-    </ul>
-  )
+      ))
+
 }
 
 export default UserList
