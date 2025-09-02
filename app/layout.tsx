@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/Theme.provider";
-import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { Navbar } from "@/components/common/Navbar";
+import { ReduxProvider } from "@/providers/Redux.provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,10 +36,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <>
-          <Navbar />
-          {children}
-          </>
+          <ReduxProvider>
+            <Navbar />
+            {children}
+          </ReduxProvider>
         </ThemeProvider>
       </body>
     </html>

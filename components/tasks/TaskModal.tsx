@@ -1,26 +1,31 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Plus } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Plus } from "lucide-react";
+import { useAppDispatch } from "@/store/hooks";
+import { addTask } from "@/store/tasksSlice";
 
-interface TaskModalProps {
-  onAddTask: (name: string) => void
-}
-
-export function TaskModal({ onAddTask }: TaskModalProps) {
-  const [newTaskName, setNewTaskName] = useState("")
-  const [isModalOpen, setIsModalOpen] = useState(false)
+export function TaskModal() {
+  const [newTaskName, setNewTaskName] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useAppDispatch();
 
   const handleAddTask = () => {
     if (newTaskName.trim()) {
-      onAddTask(newTaskName.trim())
-      setNewTaskName("")
-      setIsModalOpen(false)
+      dispatch(addTask(newTaskName.trim()));
+      setNewTaskName("");
+      setIsModalOpen(false);
     }
-  }
+  };
 
   return (
     <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
@@ -35,7 +40,9 @@ export function TaskModal({ onAddTask }: TaskModalProps) {
       </DialogTrigger>
       <DialogContent className="sm:max-w-md bg-popover border-border animate-fade-in animate-duration-300">
         <DialogHeader>
-          <DialogTitle className="text-xl font-semibold text-popover-foreground">Create New Task</DialogTitle>
+          <DialogTitle className="text-xl font-semibold text-popover-foreground">
+            Create New Task
+          </DialogTitle>
         </DialogHeader>
         <div className="space-y-4 pt-4">
           <Input
@@ -65,5 +72,5 @@ export function TaskModal({ onAddTask }: TaskModalProps) {
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
