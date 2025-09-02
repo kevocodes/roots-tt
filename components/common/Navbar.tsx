@@ -3,14 +3,10 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
 import { ThemeToggle } from "./ThemeToggle"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
