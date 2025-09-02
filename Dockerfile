@@ -16,10 +16,10 @@ ENV NODE_ENV=production
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 
-# usuario no root
+# non root user
 RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
 
-# copia lo mínimo para ejecutar Next standalone
+# copy the minimum required files
 COPY --from=build /app/.next/standalone ./
 COPY --from=build /app/.next/static ./.next/static
 COPY --from=build /app/public ./public

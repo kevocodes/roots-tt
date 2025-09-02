@@ -30,6 +30,7 @@ export function TaskModal() {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+      {/* Dialog trigger button */}
       <DialogTrigger asChild>
         <Button
           size="lg"
@@ -39,6 +40,8 @@ export function TaskModal() {
           New Task
         </Button>
       </DialogTrigger>
+
+      {/* Create task form */}
       <DialogContent className="sm:max-w-md bg-popover border-border animate-fade-in animate-duration-300">
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold text-popover-foreground">

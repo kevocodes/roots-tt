@@ -17,11 +17,13 @@ function UserCard({ user }: UserCardProps) {
   return (
     <Card className="w-full">
       <CardContent className="flex items-center gap-4">
+        {/* User avatar */}
         <Avatar className="h-12 w-12">
           <AvatarImage src={user.avatar} alt={user.name} />
           <AvatarFallback className="text-muted-foreground font-medium">{user.name.charAt(0)}</AvatarFallback>
         </Avatar>
 
+        {/* User information */}
         <div className="flex flex-col justify-start text-start">
           <h2 className="text-lg font-medium">{user.name}</h2>
           <p className="text-sm text-muted-foreground">Created at {format(user.createdAt, "MMMM D, YYYY")}</p>
@@ -30,6 +32,8 @@ function UserCard({ user }: UserCardProps) {
     </Card>
   )
 }
+
+// UserCard skeleton for loading state
 
 UserCard.Skeleton = function UserCardSkeleton() {
   return (

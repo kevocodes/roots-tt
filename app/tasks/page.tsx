@@ -10,6 +10,7 @@ function TasksPage() {
           Roots <AuroraText>Tasks</AuroraText>
         </h1>
 
+        {/* Task management section */}
         <TaskMain />
       </section>
     </main>

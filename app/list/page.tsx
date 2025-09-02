@@ -14,6 +14,7 @@ export default async function ListPage() {
           Roots <AuroraText>List</AuroraText>
         </h1>
 
+        {/* User list, while loading, show skeletons */}
         <Suspense
           fallback={[...Array(10)].map((_, index) => (
               <UserCard.Skeleton key={index} />

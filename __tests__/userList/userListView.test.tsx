@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { UserListView } from '@/components/userList/UserList'
+import { UserListView } from '@/components/userList/UserListView'
 import type { User } from '@/models/list.model'
 
 describe('UserListView', () => {
