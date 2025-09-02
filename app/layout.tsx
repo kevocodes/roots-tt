@@ -36,7 +36,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <>
-          <ThemeToggle className="absolute top-4 right-4" />
+          <ThemeToggle className="absolute top-4 right-4 cursor-pointer" />
           {children}
           </>
         </ThemeProvider>
