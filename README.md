@@ -33,11 +33,51 @@ npm run dev
 # Build de producción
 npm run build
 npm run start
+````
+
+---
+
+## Ejecutar con Docker (Producción)
+
+**Requisitos adicionales**
+
+* Docker Engine 24+ y Docker Compose v2
+
+### Con Docker Compose (recomendado)
+
+```bash
+# Build + levantar en segundo plano
+docker compose up -d --build
+
+# Ver logs en tiempo real
+docker compose logs -f
+
+# Detener y limpiar contenedores/red
+docker compose down
+```
+
+* App disponible en: `http://localhost:3000`
+* Para reconstruir después de cambios: `docker compose up -d --build`
+
+### Solo Docker (sin Compose)
+
+```bash
+# Construir imagen
+docker build -t roots-app .
+
+# Ejecutar contenedor
+docker run -d -p 3000:3000 --name roots roots-app
+
+# Logs
+docker logs -f roots
+
+# Parar y eliminar
+docker stop roots && docker rm roots
 ```
 
 ---
 
-## Tests
+## Testing
 
 ```bash
 # Ejecutar tests una vez
@@ -65,4 +105,3 @@ npm run test:watch
 * `npm run test` / `npm run test:watch` → Pruebas
 
 ---
-
