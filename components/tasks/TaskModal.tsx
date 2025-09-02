@@ -42,7 +42,7 @@ export function TaskModal({ onAddTask }: TaskModalProps) {
             placeholder="Task name..."
             value={newTaskName}
             onChange={(e) => setNewTaskName(e.target.value)}
-            onKeyPress={(e) => e.key === "Enter" && handleAddTask()}
+            onKeyDown={(e) => e.key === "Enter" && handleAddTask()}
             className="bg-input border-border focus:ring-ring"
             autoFocus
           />
