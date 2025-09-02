@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/Theme.provider";
 import { ThemeToggle } from "@/components/custom/ThemeToggle";
+import { Navbar } from "@/components/custom/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <>
-          <ThemeToggle className="absolute top-4 right-4 cursor-pointer" />
+          <Navbar />
           {children}
           </>
         </ThemeProvider>
