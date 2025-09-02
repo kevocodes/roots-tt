@@ -1,5 +1,5 @@
-import UserCard from "@/components/custom/UserCard";
-import UserList from "@/components/custom/UserList";
+import UserCard from "@/components/userList/UserCard";
+import UserList from "@/components/userList/UserList";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { getUsersList } from "@/services/lists.service";
 import { Suspense } from "react";
