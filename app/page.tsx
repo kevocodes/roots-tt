@@ -13,6 +13,7 @@ export default function Home() {
           Task management system for technical assessment.
         </p>
 
+        {/* Navigation buttons */}
         <section className="flex gap-4 sm:flex-row flex-col w-full">
           <Link href="/tasks" className="flex-1">
             <Button className="w-full cursor-pointer">View Tasks</Button>

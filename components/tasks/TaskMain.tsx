@@ -10,12 +10,15 @@ export function TaskMain() {
 
   return (
     <div className={`max-w-2xl w-full mt-8`}>
+      {/* Task management section */}
       <div className="flex justify-center mb-8">
         <TaskModal />
       </div>
 
+      {/* Task list */}
       <TaskList tasks={tasks} />
 
+      {/* Task statistics */}
       {tasks.length > 0 && (
         <div className="mt-8 text-center text-muted-foreground animate-fade-in">
           <p>

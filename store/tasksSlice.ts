@@ -5,6 +5,7 @@ interface TasksState {
   tasks: Task[]
 }
 
+// Initial state for the tasks slice
 const initialState: TasksState = {
   tasks: [
     {

@@ -3,7 +3,6 @@ import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 
-// Adjust paths to your project
 import TasksPage from "@/app/tasks/page";
 import tasksReducer from "@/store/tasksSlice";
 import { Task } from "@/models/tasks.model";

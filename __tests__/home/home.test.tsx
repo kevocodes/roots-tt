@@ -1,5 +1,5 @@
 import { render, screen, within } from '@testing-library/react'
-import Home from '@/app/page' // adjust if your Home is elsewhere
+import Home from '@/app/page'
 
 describe('Home page', () => {
   it('renders the layout and the title', () => {

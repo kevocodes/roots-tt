@@ -19,6 +19,8 @@ export function TaskItem({ task, index }: TaskItemProps) {
   const [editName, setEditName] = useState(task.name);
   const dispatch = useAppDispatch();
 
+  // Actions handlers
+
   const handleSaveEdit = () => {
     if (editName.trim()) {
       dispatch(editTask({ id: task.id, name: editName.trim() }));
@@ -52,8 +54,10 @@ export function TaskItem({ task, index }: TaskItemProps) {
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <CardContent className="p-4">
+
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 flex-1">
+            {/* Task completion button */}
             <button
               onClick={handleToggleComplete}
               className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all duration-200 cursor-pointer ${
@@ -65,6 +69,7 @@ export function TaskItem({ task, index }: TaskItemProps) {
               {task.completed && <Check className="w-3 h-3" />}
             </button>
 
+            {/* While is editing show input field and control buttons */}
             {isEditing ? (
               <div className="flex items-center gap-2 flex-1">
                 <Input
@@ -91,6 +96,7 @@ export function TaskItem({ task, index }: TaskItemProps) {
                 </Button>
               </div>
             ) : (
+              // While not editing show task name
               <span
                 className={`text-card-foreground flex-1 text-start ${
                   task.completed ? "line-through text-muted-foreground" : ""
@@ -101,6 +107,7 @@ export function TaskItem({ task, index }: TaskItemProps) {
             )}
           </div>
 
+          {/* While not editing show task controls */}
           {!isEditing && (
             <div className="flex items-center gap-2">
               <Button

@@ -9,6 +9,7 @@ interface TaskListProps {
 }
 
 export function TaskList({ tasks }: TaskListProps) {
+  // If no tasks are present, show empty state
   if (tasks.length === 0) {
     return (
       <Card className="bg-card border-border animate-fade-in">
@@ -24,6 +25,7 @@ export function TaskList({ tasks }: TaskListProps) {
     );
   }
 
+  // If tasks are present, show task list
   return (
     <div className="space-y-3">
       {tasks.map((task, index) => (
