@@ -9,6 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Plus } from "lucide-react";
 import { useAppDispatch } from "@/store/hooks";
@@ -32,7 +33,7 @@ export function TaskModal() {
       <DialogTrigger asChild>
         <Button
           size="lg"
-          className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in sm:w-fit w-full"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in sm:w-fit w-full cursor-pointer"
         >
           <Plus className="w-5 h-5 mr-2" />
           New Task
@@ -43,6 +44,9 @@ export function TaskModal() {
           <DialogTitle className="text-xl font-semibold text-popover-foreground">
             Create New Task
           </DialogTitle>
+          <DialogDescription>
+            Please enter the name of the new task you want to create.
+          </DialogDescription>
         </DialogHeader>
         <div className="space-y-4 pt-4">
           <Input
@@ -57,14 +61,14 @@ export function TaskModal() {
             <Button
               variant="outline"
               onClick={() => setIsModalOpen(false)}
-              className="border-border hover:bg-secondary"
+              className="border-border hover:bg-secondary cursor-pointer"
             >
               Cancelar
             </Button>
             <Button
               onClick={handleAddTask}
               disabled={!newTaskName.trim()}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer"
             >
               Add
             </Button>

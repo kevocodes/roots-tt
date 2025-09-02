@@ -56,7 +56,7 @@ export function TaskItem({ task, index }: TaskItemProps) {
           <div className="flex items-center gap-3 flex-1">
             <button
               onClick={handleToggleComplete}
-              className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all duration-200 ${
+              className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all duration-200 cursor-pointer ${
                 task.completed
                   ? "bg-primary border-primary text-primary-foreground"
                   : "border-border hover:border-primary"

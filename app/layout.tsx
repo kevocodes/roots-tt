@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Roots Tasks",
   description: "A task management application",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
